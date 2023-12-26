@@ -1,0 +1,31 @@
+messages:
+  commands:
+    login:
+      usage: "<dark_gray>⚐ | <gray>Użycie /login <dark_gray>[<aqua>hasło</aqua>]"
+      console_error: "<dark_red>⚐ | <red>Nie możesz wykonać tej komendy z konsoli!"
+      register_before_error: "<dark_red>⚐ | <red>Musisz najpierw się zarejestrować!"
+      incorrect_password: "<dark_red>⚐ | <red>Niepoprane hasło!"
+      success_login: "<dark_green>⚐ | <green>Zostałeś poprawnie zalogowany."
+    register:
+      usage: "<dark_gray>⚐ | <gray>Użycie /register <dark_gray>[<aqua>hasło</aqua>] [<aqua>powtórz hasło</aqua>]"
+      console_error: "<dark_red>⚐ | <red>Nie możesz wykonać tej komendy z konsoli!"
+      already_have_account: "<dark_red>⚐ | <red>Masz już konto! <gray>Zaloguj się."
+      success_register: "<dark_green>⚐ | <green>Poprawnie stworzyłeś konto."
+    email:
+      usage: "<dark_gray>⚐ | <gray>Użycie /email <dark_gray>[<aqua>twój email</aqua>]"
+      console_error: "<dark_red>⚐ | <red>Nie możesz wykonać tej komendy z konsoli!"
+      register_before_error: "<dark_red>⚐ | <red>Musisz najpierw założyć konto!"
+      not_login: "<dark_red>⚐ | <red>Musisz najpierw się zalogować!"
+      invalid_format: "<dark_red>⚐ | <red>Nieprawidłowy adres email!"
+      success_set_email: "<dark_green>⚐ | <green>Poprawnie ustawiłeś nowy adres email."
+    change_password:
+      usage: "<dark_gray>⚐ | <gray>Użycie /changepassword <dark_gray>[<aqua>stare hasło</aqua>] [<aqua>nowe hasło</aqua>] [<aqua>powtrz hasło</aqua>]"
+      console_error: "<dark_red>⚐ | <red>Nie możesz wykonać tej komendy z konsoli!"
+      register_before_error: "<dark_red>⚐ | <red>Musisz najpierw założyć konto!"
+      not_login: "<dark_red>⚐ | <red>Musisz najpierw się zalogować!"
+      incorrect_password: "<dark_red>⚐ | <red>Niepoprane hasło!"
+      passwords_not_equals: "<dark_red>⚐ | <red>Hasła nie są takie same!"
+      success_change_password: "<dark_green>⚐ | <green>Poprawnie zmieniono hasło. <gray>Zaloguj się ponownie."
+  time:
+    login_time_passed: "<dark_red>⚐ | <red>Minął czas na logowanie!"
+    register_time_passed: "<dark_red>⚐ | <red>Minął czas na rejestrację!"

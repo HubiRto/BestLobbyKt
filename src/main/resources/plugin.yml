@@ -1,0 +1,6 @@
+name: BestLobbyKt
+version: '${version}'
+main: pl.pomoku.bestlobbykt.BestLobbyKt
+api-version: '1.20'
+authors: [HubiRto]
+description: Plugin na logowanie i lobby

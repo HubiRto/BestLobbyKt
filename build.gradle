@@ -1,0 +1,73 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+    id 'org.jetbrains.kotlin.jvm' version '2.0.0-Beta2'
+}
+
+group = 'pl.pomoku'
+version = '1.0'
+
+repositories {
+    mavenCentral()
+    maven {
+        name = "papermc-repo"
+        url = "https://repo.papermc.io/repository/maven-public/"
+    }
+    maven {
+        name = "sonatype"
+        url = "https://oss.sonatype.org/content/groups/public/"
+    }
+}
+
+dependencies {
+    compileOnly "io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation 'commons-codec:commons-codec:1.16.0'
+    implementation 'mysql:mysql-connector-java:8.0.32'
+    implementation 'org.hibernate:hibernate-core:6.4.1.Final'
+    implementation 'org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.2.Final'
+    implementation 'org.springframework:spring-context:6.1.2'
+    implementation 'org.springframework:spring-orm:6.1.2'
+    implementation 'org.springframework.data:spring-data-jpa:3.2.1'
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+}
+
+def targetJavaVersion = 17
+java {
+    def javaVersion = JavaVersion.toVersion(targetJavaVersion)
+    if (JavaVersion.current() < javaVersion) {
+        toolchain.languageVersion = JavaLanguageVersion.of(targetJavaVersion)
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible()) {
+        options.release = targetJavaVersion
+    }
+}
+
+processResources {
+    def props = [version: version]
+    inputs.properties props
+    filteringCharset 'UTF-8'
+    filesMatching('plugin.yml') {
+        expand props
+    }
+}
+
+jar {
+    enabled = false
+}
+
+shadowJar {
+    archiveBaseName.set(project.name)
+    archiveVersion.set(project.version)
+    archiveClassifier.set('')
+    destinationDirectory = file("${project.projectDir}/plugins")
+}
+
+build.dependsOn shadowJar
+
+kotlin {
+    jvmToolchain(17)
+}
